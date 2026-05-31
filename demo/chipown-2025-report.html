@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>芯朋微 2025 年度财报演示 · Liquid Glass</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style id="theme-style">
+/* === Liquid Glass === */
+:root {
+  --bg: #0a0a1a;
+  --bg-rgb: 10, 10, 26;
+  --text: #f0f0f5;
+  --text-rgb: 240, 240, 245;
+  --accent: #7dd3fc;
+  --accent-rgb: 125, 211, 252;
+  --accent-warm: #f472b6;
+  --accent-warm-rgb: 244, 114, 182;
+  --accent-green: #34d399;
+  --accent-green-rgb: 52, 211, 153;
+  --accent-amber: #fbbf24;
+  --accent-amber-rgb: 251, 191, 36;
+  --accent-red: #f87171;
+  --accent-red-rgb: 248, 113, 113;
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-hover: rgba(255, 255, 255, 0.1);
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --muted: rgba(255, 255, 255, 0.5);
+  --muted-strong: rgba(255, 255, 255, 0.7);
+  --font-heading: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+  --font-body: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --blur: 24px;
+  --blur-heavy: 40px;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse at 15% 30%, rgba(var(--accent-rgb), 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 70%, rgba(var(--accent-warm-rgb), 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(168, 85, 247, 0.06) 0%, transparent 60%);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); }
+h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); }
+
+p {
+  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+  line-height: 1.75;
+  color: var(--muted-strong);
+}
+
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+code {
+  font-family: var(--font-mono);
+  background: rgba(255,255,255,0.1);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-size: 0.875em;
+}
+
+strong { font-weight: 600; color: var(--text); }
+small { font-size: 0.875rem; color: var(--muted); }
+
+/* Glass panel */
+.glass-panel {
+  background: var(--surface);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-panel:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-strong);
+}
+
+.glass-panel-accent {
+  border-left: 3px solid var(--accent);
+}
+
+.glass-panel-warm {
+  border-left: 3px solid var(--accent-warm);
+}
+
+/* Hero */
+.slide-hero h1 {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.slide-hero p { max-width: 600px; margin-top: var(--space-lg); }
+
+/* Split */
+.slide-split > * + * { padding-left: var(--space-2xl); }
+
+/* Grid */
+.slide-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Cards */
+.slide-cards {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+hr { border: none; border-top: 1px solid var(--border); margin: var(--space-xl) 0; }
+ul, ol { padding-left: 1.5em; }
+li { line-height: 1.8; color: var(--muted-strong); }
+blockquote {
+  border-left: 2px solid var(--accent);
+  padding-left: var(--space-lg);
+  color: var(--muted);
+  font-style: italic;
+}
+
+table { width: 100%; border-collapse: collapse; }
+th, td {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+th {
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.slide img { border-radius: var(--radius-lg); }
+</style>
+<style>
+/* ===== Shared Base ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { overflow: hidden; width: 100vw; height: 100vh; }
+
+.deck {
+  display: flex;
+  width: max-content;
+  height: 100vh;
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(var(--accent-rgb), 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(var(--accent-warm-rgb), 0.04) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.slide > * { position: relative; z-index: 1; }
+
+.slide-hero {
+  align-items: center;
+  text-align: center;
+}
+
+.slide-split {
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.slide-split > * {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slide-split > * + * { padding-left: 48px; }
+
+/* ===== Typography ===== */
+.t-display {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.t-h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.t-h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.t-h3 {
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.t-body {
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--muted-strong);
+}
+
+.t-caption {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.t-mono { font-family: var(--font-mono); }
+
+.t-number {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.t-number-lg {
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== Editable ===== */
+[contenteditable="true"] {
+  outline: none;
+  border-radius: 4px;
+  transition: box-shadow 0.2s ease, background 0.2s ease;
+  cursor: text;
+}
+
+[contenteditable="true"]:hover {
+  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.2);
+}
+
+[contenteditable="true"]:focus {
+  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.4);
+  background: rgba(var(--accent-rgb), 0.08);
+}
+
+/* ===== Decorative ===== */
+.rule-accent {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+  border: none;
+  border-radius: 2px;
+}
+
+.rule-thin {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  border: none;
+}
+
+.dot-accent {
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.5);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.tag-primary {
+  background: rgba(var(--accent-rgb), 0.15);
+  color: var(--accent);
+  border: 1px solid rgba(var(--accent-rgb), 0.25);
+}
+
+.tag-green {
+  background: rgba(var(--accent-green-rgb), 0.12);
+  color: var(--accent-green);
+  border: 1px solid rgba(var(--accent-green-rgb), 0.2);
+}
+
+.tag-red {
+  background: rgba(var(--accent-red-rgb), 0.12);
+  color: var(--accent-red);
+  border: 1px solid rgba(var(--accent-red-rgb), 0.2);
+}
+
+.tag-blue {
+  background: rgba(var(--accent-rgb), 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(var(--accent-rgb), 0.2);
+}
+
+.tag-amber {
+  background: rgba(var(--accent-amber-rgb), 0.12);
+  color: var(--accent-amber);
+  border: 1px solid rgba(var(--accent-amber-rgb), 0.2);
+}
+
+/* ===== Card (glass) ===== */
+.card {
+  background: var(--surface);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.card-accent {
+  border-left: 3px solid var(--accent);
+}
+
+/* ===== Metric ===== */
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.metric-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.metric-value {
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.metric-change {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.metric-change.up { color: var(--accent-green); }
+.metric-change.down { color: var(--accent-red); }
+
+/* ===== Bar Chart ===== */
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  height: 200px;
+  padding-top: 1rem;
+}
+
+.bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.bar {
+  width: 100%;
+  max-width: 56px;
+  border-radius: 6px 6px 0 0;
+  transition: height 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  min-height: 4px;
+}
+
+.bar-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-align: center;
+}
+
+.bar-value {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+}
+
+/* ===== Horizontal Bar ===== */
+.h-bar-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.h-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ===== Table ===== */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.data-table th {
+  text-align: left;
+  padding: 0.7rem 0.9rem;
+  font-weight: 600;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.data-table td {
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  font-variant-numeric: tabular-nums;
+  color: var(--muted-strong);
+}
+
+.data-table tr:last-child td {
+  border-bottom: 1px solid var(--border-strong);
+}
+
+/* ===== Section Header ===== */
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+/* ===== Cover Layout ===== */
+.cover-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1;
+  gap: 1.5rem;
+}
+
+/* ===== Feature List ===== */
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-left: 0;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--muted-strong);
+}
+
+.feature-list li::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 0.55rem;
+  box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.4);
+}
+
+/* ===== Highlight Box ===== */
+.highlight-box {
+  background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.12), rgba(var(--accent-warm-rgb), 0.08));
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border: 1px solid rgba(var(--accent-rgb), 0.2);
+  padding: 2rem 2.5rem;
+  border-radius: var(--radius-lg);
+}
+
+.highlight-box .t-caption {
+  color: rgba(var(--accent-rgb), 0.7);
+}
+
+/* ===== Grids ===== */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.three-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.swiss-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.25rem;
+  flex: 1;
+  align-content: start;
+}
+
+/* ===== Timeline ===== */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-warm));
+  opacity: 0.3;
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 1.5rem;
+  padding-left: 1rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 0.35rem;
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.5);
+}
+
+/* ===== Brand Watermark ===== */
+.brand-watermark {
+  position: fixed;
+  top: 1.5rem;
+  right: 2.5rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.15);
+  z-index: 50;
+}
+
+/* ===== Navigation ===== */
+.nav-hint {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  opacity: 0.3;
+  pointer-events: none;
+  color: var(--muted);
+  z-index: 100;
+}
+
+.slide-number {
+  position: fixed;
+  bottom: 20px;
+  right: 80px;
+  font-size: 11px;
+  opacity: 0.3;
+  color: var(--muted);
+  z-index: 100;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== Index Overlay ===== */
+.index-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(var(--bg-rgb), 0.95);
+  backdrop-filter: blur(var(--blur-heavy));
+  -webkit-backdrop-filter: blur(var(--blur-heavy));
+  z-index: 1000;
+  display: none;
+  overflow-y: auto;
+  padding: 40px;
+}
+
+.index-overlay.active {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.index-overlay .index-thumb {
+  aspect-ratio: 16/9;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  padding: 14px;
+  color: var(--muted-strong);
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.index-overlay .index-thumb:hover {
+  border-color: var(--accent);
+  background: var(--surface-hover);
+}
+
+/* ===== Floating Orbs (decorative) ===== */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .slide { padding: 40px 48px; }
+  .t-display { font-size: 3rem; }
+  .t-h1 { font-size: 2.2rem; }
+  .t-number-lg { font-size: 3.5rem; }
+  .t-number { font-size: 2.5rem; }
+  .two-col { grid-template-columns: 1fr; gap: 1.5rem; }
+  .three-col { grid-template-columns: 1fr; gap: 1.25rem; }
+  .slide-split { flex-direction: column; }
+  .slide-split > * + * { padding-left: 0; padding-top: 24px; }
+}
+
+@media (max-width: 640px) {
+  .slide { padding: 24px; }
+  .t-display { font-size: 2.2rem; }
+  .t-h1 { font-size: 1.6rem; }
+  .metric-value { font-size: 1.8rem; }
+  .t-number-lg { font-size: 2.5rem; }
+  .swiss-grid { grid-template-columns: 1fr; }
+  .swiss-grid > * { grid-column: span 1 !important; }
+}
+
+/* ===== Print ===== */
+@media print {
+  .nav-hint, .slide-number, .brand-watermark, .index-overlay { display: none; }
+  .deck { display: block; width: auto; height: auto; transform: none !important; }
+  .slide { position: relative; page-break-after: always; height: auto; min-height: 100vh; }
+}
+</style>
+</head>
+<body>
+
+<div class="brand-watermark">CHIPOWN MICRO · 2025 ANNUAL REPORT</div>
+
+<div class="deck" id="deck">
+
+  <!-- ═══════════ SLIDE 01: COVER ═══════════ -->
+  <section class="slide slide-hero" data-slide="1">
+    <div class="orb" style="width:400px;height:400px;background:rgba(var(--accent-rgb),0.15);top:-100px;right:-50px;"></div>
+    <div class="orb" style="width:300px;height:300px;background:rgba(var(--accent-warm-rgb),0.1);bottom:-80px;left:10%;"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;text-align:center;">
+      <span class="tag tag-primary">年度财报 · ANNUAL REPORT</span>
+      <h1 class="t-display" contenteditable="true" style="background:linear-gradient(135deg,#f0f0f5,#7dd3fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">芯朋微电子</h1>
+      <p class="t-h2" style="font-weight:400;color:var(--muted-strong);" contenteditable="true">2025 年度财务报告</p>
+      <hr class="rule-accent" style="width:120px;margin:0.5rem auto;">
+      <p class="t-body" style="text-align:center;" contenteditable="true">
+        无锡芯朋微电子股份有限公司<br>
+        股票代码：688508.SH · 科创板
+      </p>
+      <p class="t-caption" style="margin-top:1.5rem;" contenteditable="true">
+        报告期间：2025年1月1日 — 2025年12月31日
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 02: COMPANY OVERVIEW ═══════════ -->
+  <section class="slide" data-slide="2">
+    <div class="section-header">
+      <span class="t-caption">01 · COMPANY OVERVIEW</span>
+      <h1 class="t-h1" contenteditable="true">公司概况</h1>
+      <hr class="rule-accent" style="width:80px;">
+    </div>
+    <div class="two-col" style="flex:1;">
+      <div style="display:flex;flex-direction:column;gap:1.5rem;">
+        <p class="t-body" contenteditable="true" style="font-size:1.05rem;line-height:1.85;">
+          芯朋微电子成立于2005年，总部位于江苏无锡，是一家专注于电源管理集成电路（PMIC）设计与销售的高新技术企业。公司于2020年登陆科创板，是国内电源管理芯片领域的领军企业之一。
+        </p>
+        <p class="t-body" contenteditable="true">
+          公司深耕模拟芯片赛道二十余年，产品覆盖AC-DC、DC-DC、LED驱动、电机驱动等核心品类，广泛应用于消费电子、家用电器、工业控制及新能源汽车等领域。
+        </p>
+        <div class="card card-accent">
+          <div class="t-caption" style="margin-bottom:0.5rem;">企业使命</div>
+          <div class="t-h3" contenteditable="true">"让每一度电都更高效"</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="card">
+          <div class="metric">
+            <span class="metric-label">成立时间</span>
+            <span class="metric-value" contenteditable="true" style="font-size:2rem;">2005</span>
+            <span class="t-caption">江苏无锡</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="metric">
+            <span class="metric-label">上市板块</span>
+            <span class="metric-value" contenteditable="true" style="font-size:1.5rem;">科创板</span>
+            <span class="t-caption">688508.SH · 2020年上市</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="metric">
+            <span class="metric-label">员工规模</span>
+            <span class="metric-value" contenteditable="true" style="font-size:2rem;">800+</span>
+            <span class="t-caption">研发人员占比超60%</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="metric">
+            <span class="metric-label">总部</span>
+            <span class="metric-value" contenteditable="true" style="font-size:1.5rem;">无锡</span>
+            <span class="t-caption">深圳 · 上海 · 台北设有研发中心</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 03: CORE PRODUCTS ═══════════ -->
+  <section class="slide" data-slide="3">
+    <div class="section-header">
+      <span class="t-caption">02 · CORE PRODUCTS</span>
+      <h1 class="t-h1" contenteditable="true">核心产品与技术</h1>
+      <hr class="rule-accent" style="width:80px;">
+    </div>
+    <div class="three-col" style="flex:1;">
+      <div class="card" style="display:flex;flex-direction:column;gap:1rem;">
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <div class="dot-accent"></div>
+          <span class="t-h3" contenteditable="true">AC-DC 电源管理</span>
+        </div>
+        <p class="t-body" contenteditable="true">
+          涵盖快充适配器、充电器、TV电源、LED照明驱动等应用，支持PD3.1/QC5.0等最新快充协议，功率覆盖5W-240W。
+        </p>
+        <div style="margin-top:auto;">
+          <div class="t-caption" style="margin-bottom:0.4rem;">营收占比</div>
+          <div class="h-bar-track">
+            <div class="h-bar-fill" style="width:45%;background:var(--accent);"></div>
+          </div>
+          <div class="t-caption" style="margin-top:0.25rem;" contenteditable="true">约 45%</div>
+        </div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;gap:1rem;">
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <div class="dot-accent" style="background:var(--accent-warm);box-shadow:0 0 12px rgba(var(--accent-warm-rgb),0.5);"></div>
+          <span class="t-h3" contenteditable="true">DC-DC 转换器</span>
+        </div>
+        <p class="t-body" contenteditable="true">
+          同步降压/升压转换器、LDO稳压器，应用于手机、平板、IoT设备及服务器电源，效率高达97%，支持超小封装。
+        </p>
+        <div style="margin-top:auto;">
+          <div class="t-caption" style="margin-bottom:0.4rem;">营收占比</div>
+          <div class="h-bar-track">
+            <div class="h-bar-fill" style="width:30%;background:var(--accent-warm);"></div>
+          </div>
+          <div class="t-caption" style="margin-top:0.25rem;" contenteditable="true">约 30%</div>
+        </div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;gap:1rem;">
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <div class="dot-accent" style="background:var(--accent-green);box-shadow:0 0 12px rgba(var(--accent-green-rgb),0.5);"></div>
+          <span class="t-h3" contenteditable="true">电机驱动 &amp; LED</span>
+        </div>
+        <p class="t-body" contenteditable="true">
+          BLDC电机驱动IC、LED背光驱动及智能照明方案，应用于白电、电动工具、汽车照明等领域，集成度行业领先。
+        </p>
+        <div style="margin-top:auto;">
+          <div class="t-caption" style="margin-bottom:0.4rem;">营收占比</div>
+          <div class="h-bar-track">
+            <div class="h-bar-fill" style="width:25%;background:var(--accent-green);"></div>
+          </div>
+          <div class="t-caption" style="margin-top:0.25rem;" contenteditable="true">约 25%</div>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:1.25rem;display:flex;gap:3rem;flex-wrap:wrap;">
+      <div>
+        <span class="t-caption">核心技术平台</span>
+        <div class="t-body" contenteditable="true" style="margin-top:0.25rem;">高压BCD工艺 · SOI-LDMOS · GaN集成驱动 · 数字控制环路</div>
+      </div>
+      <div>
+        <span class="t-caption">专利布局</span>
+        <div class="t-body" contenteditable="true" style="margin-top:0.25rem;">累计授权专利 300+ 项，其中发明专利占比超 60%</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 04: FINANCIAL HIGHLIGHTS ═══════════ -->
+  <section class="slide" data-slide="4">
+    <div class="section-header">
+      <span class="t-caption">03 · FINANCIAL HIGHLIGHTS</span>
+      <h1 class="t-h1" contenteditable="true">2025 年度财务亮点</h1>
+      <hr class="rule-accent" style="width:80px;">
+    </div>
+    <div class="swiss-grid" style="margin-bottom:1.5rem;">
+      <div class="card" style="grid-column:span 3;">
+        <div class="metric">
+          <span class="metric-label">营业收入</span>
+          <span class="t-number" contenteditable="true">12.8</span>
+          <span style="font-size:1.3rem;font-weight:700;color:var(--muted);" contenteditable="true">亿元</span>
+          <span class="metric-change up" contenteditable="true">↑ 22.5% YoY</span>
+        </div>
+      </div>
+      <div class="card" style="grid-column:span 3;">
+        <div class="metric">
+          <span class="metric-label">归母净利润</span>
+          <span class="t-number" contenteditable="true">2.15</span>
+          <span style="font-size:1.3rem;font-weight:700;color:var(--muted);" contenteditable="true">亿元</span>
+          <span class="metric-change up" contenteditable="true">↑ 35.2% YoY</span>
+        </div>
+      </div>
+      <div class="card" style="grid-column:span 3;">
+        <div class="metric">
+          <span class="metric-label">综合毛利率</span>
+          <span class="t-number" contenteditable="true">46.8</span>
+          <span style="font-size:1.3rem;font-weight:700;color:var(--muted);" contenteditable="true">%</span>
+          <span class="metric-change up" contenteditable="true">↑ 2.3pp YoY</span>
+        </div>
+      </div>
+      <div class="card" style="grid-column:span 3;">
+        <div class="metric">
+          <span class="metric-label">研发投入</span>
+          <span class="t-number" contenteditable="true">2.3</span>
+          <span style="font-size:1.3rem;font-weight:700;color:var(--muted);" contenteditable="true">亿元</span>
+          <span class="metric-change" contenteditable="true" style="color:var(--accent);">占营收 18.0%</span>
+        </div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <div class="t-caption" style="margin-bottom:1rem;">营收增长趋势（亿元）</div>
+        <div class="bar-chart">
+          <div class="bar-group">
+            <div class="bar-value" contenteditable="true">6.5</div>
+            <div class="bar" style="height:40%;background:rgba(255,255,255,0.12);"></div>
+            <div class="bar-label">2021</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-value" contenteditable="true">7.2</div>
+            <div class="bar" style="height:45%;background:rgba(255,255,255,0.12);"></div>
+            <div class="bar-label">2022</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-value" contenteditable="true">8.4</div>
+            <div class="bar" style="height:52%;background:rgba(255,255,255,0.15);"></div>
+            <div class="bar-label">2023</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-value" contenteditable="true">10.4</div>
+            <div class="bar" style="height:65%;background:rgba(var(--accent-rgb),0.35);"></div>
+            <div class="bar-label">2024</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-value" contenteditable="true">12.8</div>
+            <div class="bar" style="height:80%;background:linear-gradient(180deg,var(--accent),rgba(var(--accent-rgb),0.5));"></div>
+            <div class="bar-label">2025</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="t-caption" style="margin-bottom:1rem;">盈利能力指标</div>
+        <table class="data-table">
+          <thead>
+            <tr><th>指标</th><th>2024</th><th>2025</th><th>变动</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>毛利率</td>
+              <td contenteditable="true">44.5%</td>
+              <td contenteditable="true">46.8%</td>
+              <td class="metric-change up" contenteditable="true">+2.3pp</td>
+            </tr>
+            <tr>
+              <td>净利率</td>
+              <td contenteditable="true">14.2%</td>
+              <td contenteditable="true">16.8%</td>
+              <td class="metric-change up" contenteditable="true">+2.6pp</td>
+            </tr>
+            <tr>
+              <td>ROE</td>
+              <td contenteditable="true">11.5%</td>
+              <td contenteditable="true">14.2%</td>
+              <td class="metric-change up" contenteditable="true">+2.7pp</td>
+            </tr>
+            <tr>
+              <td>研发占比</td>
+              <td contenteditable="true">17.3%</td>
+              <td contenteditable="true">18.0%</td>
+              <td contenteditable="true">+0.7pp</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 05: REVENUE BREAKDOWN ═══════════ -->
+  <section class="slide" data-slide="5">
+    <div class="section-header">
+      <span class="t-caption">04 · REVENUE ANALYSIS</span>
+      <h1 class="t-h1" contenteditable="true">营收结构分析</h1>
+      <hr class="rule-accent" style="width:80px;">
+    </div>
+    <div class="two-col" style="flex:1;">
+      <div style="display:flex;flex-direction:column;gap:1.5rem;">
+        <div class="card">
+          <div class="t-caption" style="margin-bottom:1rem;">按产品线</div>
+          <div style="display:flex;flex-direction:column;gap:1rem;">
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:0.3rem;">
+                <span class="t-body" contenteditable="true" style="font-weight:600;">AC-DC 电源管理</span>
+                <span class="t-body t-mono" contenteditable="true" style="font-weight:700;">5.76 亿</span>
+              </div>
+              <div class="h-bar-track"><div class="h-bar-fill" style="width:45%;background:var(--accent);"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:0.3rem;">
+                <span class="t-body" contenteditable="true" style="font-weight:600;">DC-DC 转换器</span>
+                <span class="t-body t-mono" contenteditable="true" style="font-weight:700;">3.84 亿</span>
+              </div>
+              <div class="h-bar-track"><div class="h-bar-fill" style="width:30%;background:var(--accent-warm);"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:0.3rem;">
+                <span class="t-body" contenteditable="true" style="font-weight:600;">电机驱动 IC</span>
+                <span class="t-body t-mono" contenteditable="true" style="font-weight:700;">1.92 亿</span>
+              </div>
+              <div class="h-bar-track"><div class="h-bar-fill" style="width:15%;background:var(--accent-green);"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:0.3rem;">
+                <span class="t-body" contenteditable="true" style="font-weight:600;">LED 驱动</span>
+                <span class="t-body t-mono" contenteditable="true" style="font-weight:700;">1.28 亿</span>
+              </div>
+              <div class="h-bar-track"><div class="h-bar-fill" style="width:10%;background:var(--accent-amber);"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1.5rem;">
+        <div class="card">
+          <div class="t-caption" style="margin-bottom:1rem;">按应用领域</div>
+          <div style="display:flex;flex-direction:column;gap:1rem;">
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:0.3rem;">
+                <span class="t-body" contenteditable="true" style="font-weight:600;">消费电子</span>
+                <span class="t-body t-mono" contenteditable="true" style="font-weight:700;">38%</span>
+              </div>
+              <div class="h-bar-track"><div class="h-bar-fill" style="width:38%;background:var(--muted-strong);"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:0.3rem;">
+                <span class="t-body" contenteditable="true" style="font-weight:600;">家用电器</span>
+                <span class="t-body t-mono" contenteditable="true" style="font-weight:700;">28%</span>
+              </div>
+              <div class="h-bar-track"><div class="h-bar-fill" style="width:28%;background:var(--muted-strong);"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:0.3rem;">
+                <span class="t-body" contenteditable="true" style="font-weight:600;">工业控制</span>
+                <span class="t-body t-mono" contenteditable="true" style="font-weight:700;">20%</span>
+              </div>
+              <div class="h-bar-track"><div class="h-bar-fill" style="width:20%;background:var(--muted-strong);"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:0.3rem;">
+                <span class="t-body" contenteditable="true" style="font-weight:600;">汽车电子</span>
+                <span class="t-body t-mono" contenteditable="true" style="font-weight:700;">14%</span>
+              </div>
+              <div class="h-bar-track"><div class="h-bar-fill" style="width:14%;background:var(--accent);"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="highlight-box">
+          <div class="t-caption" style="margin-bottom:0.5rem;">亮点</div>
+          <div class="t-h3" contenteditable="true">汽车电子业务同比增长 68%，成为增速最快的细分赛道</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 06: PROFIT ANALYSIS ═══════════ -->
+  <section class="slide" data-slide="6">
+    <div class="section-header">
+      <span class="t-caption">05 · PROFIT ANALYSIS</span>
+      <h1 class="t-h1" contenteditable="true">利润分析</h1>
+      <hr class="rule-accent" style="width:80px;">
+    </div>
+    <div class="swiss-grid" style="margin-bottom:1.5rem;">
+      <div class="highlight-box" style="grid-column:span 4;">
+        <div class="t-caption" style="margin-bottom:0.5rem;">归母净利润</div>
+        <div class="t-number-lg" contenteditable="true">2.15</div>
+        <div style="font-size:1.15rem;font-weight:600;color:var(--muted-strong);" contenteditable="true">亿元 · 同比增长 35.2%</div>
+      </div>
+      <div class="card" style="grid-column:span 4;">
+        <div class="t-caption" style="margin-bottom:0.5rem;">扣非净利润</div>
+        <div class="t-number" contenteditable="true">1.98</div>
+        <div class="t-body" contenteditable="true">亿元 · 同比增长 32.8%</div>
+      </div>
+      <div class="card" style="grid-column:span 4;">
+        <div class="t-caption" style="margin-bottom:0.5rem;">经营性现金流净额</div>
+        <div class="t-number" contenteditable="true">2.85</div>
+        <div class="t-body" contenteditable="true">亿元 · 同比增长 28.6%</div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <div class="t-caption" style="margin-bottom:1rem;">费用结构（亿元）</div>
+        <table class="data-table">
+          <thead>
+            <tr><th>项目</th><th>2024</th><th>2025</th><th>占比</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>研发费用</td>
+              <td contenteditable="true">1.80</td>
+              <td contenteditable="true">2.30</td>
+              <td contenteditable="true">18.0%</td>
+            </tr>
+            <tr>
+              <td>销售费用</td>
+              <td contenteditable="true">0.52</td>
+              <td contenteditable="true">0.58</td>
+              <td contenteditable="true">4.5%</td>
+            </tr>
+            <tr>
+              <td>管理费用</td>
+              <td contenteditable="true">0.65</td>
+              <td contenteditable="true">0.72</td>
+              <td contenteditable="true">5.6%</td>
+            </tr>
+            <tr>
+              <td>财务费用</td>
+              <td contenteditable="true">-0.08</td>
+              <td contenteditable="true">-0.12</td>
+              <td contenteditable="true">-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <div class="t-caption" style="margin-bottom:1rem;">利润增长趋势（亿元）</div>
+        <div class="bar-chart">
+          <div class="bar-group">
+            <div class="bar-value" contenteditable="true">0.85</div>
+            <div class="bar" style="height:30%;background:rgba(255,255,255,0.12);"></div>
+            <div class="bar-label">2021</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-value" contenteditable="true">0.92</div>
+            <div class="bar" style="height:33%;background:rgba(255,255,255,0.12);"></div>
+            <div class="bar-label">2022</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-value" contenteditable="true">1.20</div>
+            <div class="bar" style="height:43%;background:rgba(255,255,255,0.15);"></div>
+            <div class="bar-label">2023</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-value" contenteditable="true">1.59</div>
+            <div class="bar" style="height:57%;background:rgba(var(--accent-rgb),0.35);"></div>
+            <div class="bar-label">2024</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-value" contenteditable="true">2.15</div>
+            <div class="bar" style="height:77%;background:linear-gradient(180deg,var(--accent),rgba(var(--accent-rgb),0.5));"></div>
+            <div class="bar-label">2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 07: R&D INVESTMENT ═══════════ -->
+  <section class="slide" data-slide="7">
+    <div class="section-header">
+      <span class="t-caption">06 · R&amp;D INVESTMENT</span>
+      <h1 class="t-h1" contenteditable="true">研发投入与技术布局</h1>
+      <hr class="rule-accent" style="width:80px;">
+    </div>
+    <div class="swiss-grid" style="margin-bottom:1.5rem;">
+      <div class="card" style="grid-column:span 4;">
+        <div class="metric">
+          <span class="metric-label">研发费用</span>
+          <span class="t-number" contenteditable="true">2.30</span>
+          <span class="t-body" contenteditable="true">亿元 · 同比增长 27.8%</span>
+        </div>
+      </div>
+      <div class="card" style="grid-column:span 4;">
+        <div class="metric">
+          <span class="metric-label">研发人员</span>
+          <span class="t-number" contenteditable="true">500+</span>
+          <span class="t-body" contenteditable="true">占员工总数 62%</span>
+        </div>
+      </div>
+      <div class="card" style="grid-column:span 4;">
+        <div class="metric">
+          <span class="metric-label">新增专利</span>
+          <span class="t-number" contenteditable="true">58</span>
+          <span class="t-body" contenteditable="true">项 · 其中发明专利 35 项</span>
+        </div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="t-h3" style="margin-bottom:1rem;" contenteditable="true">重点研发方向</div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="t-h3" contenteditable="true" style="font-size:0.95rem;">GaN 快充芯片</div>
+            <div class="t-body" contenteditable="true">第三代半导体氮化镓集成方案，支持 240W+ 超级快充，效率提升至 95%+</div>
+          </div>
+          <div class="timeline-item">
+            <div class="t-h3" contenteditable="true" style="font-size:0.95rem;">车规级电源管理</div>
+            <div class="t-body" contenteditable="true">AEC-Q100 认证产品线，覆盖 ADAS、域控制器、BMS 等车载应用</div>
+          </div>
+          <div class="timeline-item">
+            <div class="t-h3" contenteditable="true" style="font-size:0.95rem;">数字电源控制</div>
+            <div class="t-body" contenteditable="true">全数字控制环路 PMIC，支持 PMBus/AVS 总线，面向服务器与 AI 算力</div>
+          </div>
+          <div class="timeline-item">
+            <div class="t-h3" contenteditable="true" style="font-size:0.95rem;">先进封装集成</div>
+            <div class="t-body" contenteditable="true">Chiplet 异构集成方案，多通道 PMIC 单封装，面积缩减 40%</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="t-caption" style="margin-bottom:1rem;">研发投入趋势（亿元）</div>
+        <div class="bar-chart" style="height:180px;">
+          <div class="bar-group">
+            <div class="bar-value" contenteditable="true">1.05</div>
+            <div class="bar" style="height:36%;background:rgba(255,255,255,0.12);"></div>
+            <div class="bar-label">2021</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-value" contenteditable="true">1.28</div>
+            <div class="bar" style="height:44%;background:rgba(255,255,255,0.12);"></div>
+            <div class="bar-label">2022</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-value" contenteditable="true">1.52</div>
+            <div class="bar" style="height:52%;background:rgba(255,255,255,0.15);"></div>
+            <div class="bar-label">2023</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-value" contenteditable="true">1.80</div>
+            <div class="bar" style="height:62%;background:rgba(var(--accent-rgb),0.35);"></div>
+            <div class="bar-label">2024</div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-value" contenteditable="true">2.30</div>
+            <div class="bar" style="height:80%;background:linear-gradient(180deg,var(--accent),rgba(var(--accent-rgb),0.5));"></div>
+            <div class="bar-label">2025</div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;">
+          <span class="tag tag-blue">研发投入占比持续提升</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 08: MARKET POSITION ═══════════ -->
+  <section class="slide" data-slide="8">
+    <div class="section-header">
+      <span class="t-caption">07 · MARKET POSITION</span>
+      <h1 class="t-h1" contenteditable="true">市场地位与竞争格局</h1>
+      <hr class="rule-accent" style="width:80px;">
+    </div>
+    <div class="two-col" style="flex:1;">
+      <div style="display:flex;flex-direction:column;gap:1.5rem;">
+        <div class="card">
+          <div class="t-caption" style="margin-bottom:1rem;">国内电源管理芯片市场份额</div>
+          <div style="display:flex;flex-direction:column;gap:0.75rem;">
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:0.25rem;">
+                <span class="t-body" contenteditable="true" style="font-weight:600;">圣邦股份</span>
+                <span class="t-body t-mono" contenteditable="true">12.5%</span>
+              </div>
+              <div class="h-bar-track"><div class="h-bar-fill" style="width:62%;background:rgba(255,255,255,0.2);"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:0.25rem;">
+                <span class="t-body" contenteditable="true" style="font-weight:600;">芯朋微</span>
+                <span class="t-body t-mono" contenteditable="true" style="color:var(--accent);font-weight:700;">8.2%</span>
+              </div>
+              <div class="h-bar-track"><div class="h-bar-fill" style="width:41%;background:var(--accent);"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:0.25rem;">
+                <span class="t-body" contenteditable="true" style="font-weight:600;">南芯科技</span>
+                <span class="t-body t-mono" contenteditable="true">7.8%</span>
+              </div>
+              <div class="h-bar-track"><div class="h-bar-fill" style="width:39%;background:rgba(255,255,255,0.15);"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:0.25rem;">
+                <span class="t-body" contenteditable="true" style="font-weight:600;">其他国产</span>
+                <span class="t-body t-mono" contenteditable="true">31.5%</span>
+              </div>
+              <div class="h-bar-track"><div class="h-bar-fill" style="width:100%;background:rgba(255,255,255,0.08);"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="card card-accent">
+          <div class="t-h3" contenteditable="true" style="margin-bottom:0.5rem;">市占率持续提升</div>
+          <div class="t-body" contenteditable="true">
+            2025年国内市占率从6.8%提升至8.2%，在AC-DC快充细分领域市占率排名国产第一。
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1.5rem;">
+        <div class="card">
+          <div class="t-caption" style="margin-bottom:1rem;">核心竞争优势</div>
+          <ul class="feature-list">
+            <li contenteditable="true"><strong>技术壁垒深厚</strong> — 高压BCD工艺自主可控，GaN集成方案国内领先</li>
+            <li contenteditable="true"><strong>客户资源优质</strong> — 覆盖美的、海尔、小米、华为等头部终端品牌</li>
+            <li contenteditable="true"><strong>产品矩阵完善</strong> — AC-DC/DC-DC/电机驱动/LED全覆盖，一站式方案</li>
+            <li contenteditable="true"><strong>车规级布局</strong> — AEC-Q100认证产品陆续放量，打开第二增长曲线</li>
+            <li contenteditable="true"><strong>供应链安全</strong> — 与中芯国际、华虹等本土晶圆厂深度合作</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 09: KEY CUSTOMERS ═══════════ -->
+  <section class="slide" data-slide="9">
+    <div class="section-header">
+      <span class="t-caption">08 · KEY CUSTOMERS</span>
+      <h1 class="t-h1" contenteditable="true">主要客户与合作生态</h1>
+      <hr class="rule-accent" style="width:80px;">
+    </div>
+    <div class="swiss-grid" style="flex:1;">
+      <div class="card" style="grid-column:span 6;">
+        <div class="t-h3" style="margin-bottom:1rem;" contenteditable="true">消费电子</div>
+        <div class="three-col" style="gap:0.75rem;">
+          <div class="card" style="text-align:center;padding:1rem;">
+            <div class="t-h3" contenteditable="true" style="font-size:1.05rem;">小米</div>
+            <div class="t-caption">快充适配器</div>
+          </div>
+          <div class="card" style="text-align:center;padding:1rem;">
+            <div class="t-h3" contenteditable="true" style="font-size:1.05rem;">华为</div>
+            <div class="t-caption">手机充电器</div>
+          </div>
+          <div class="card" style="text-align:center;padding:1rem;">
+            <div class="t-h3" contenteditable="true" style="font-size:1.05rem;">OPPO</div>
+            <div class="t-caption">VOOC 快充</div>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="grid-column:span 6;">
+        <div class="t-h3" style="margin-bottom:1rem;" contenteditable="true">家用电器</div>
+        <div class="three-col" style="gap:0.75rem;">
+          <div class="card" style="text-align:center;padding:1rem;">
+            <div class="t-h3" contenteditable="true" style="font-size:1.05rem;">美的</div>
+            <div class="t-caption">变频空调</div>
+          </div>
+          <div class="card" style="text-align:center;padding:1rem;">
+            <div class="t-h3" contenteditable="true" style="font-size:1.05rem;">海尔</div>
+            <div class="t-caption">智能冰洗</div>
+          </div>
+          <div class="card" style="text-align:center;padding:1rem;">
+            <div class="t-h3" contenteditable="true" style="font-size:1.05rem;">格力</div>
+            <div class="t-caption">电机驱动</div>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="grid-column:span 6;">
+        <div class="t-h3" style="margin-bottom:1rem;" contenteditable="true">工业 &amp; 汽车</div>
+        <div class="three-col" style="gap:0.75rem;">
+          <div class="card" style="text-align:center;padding:1rem;">
+            <div class="t-h3" contenteditable="true" style="font-size:1.05rem;">比亚迪</div>
+            <div class="t-caption">车载电源</div>
+          </div>
+          <div class="card" style="text-align:center;padding:1rem;">
+            <div class="t-h3" contenteditable="true" style="font-size:1.05rem;">汇川技术</div>
+            <div class="t-caption">工业变频</div>
+          </div>
+          <div class="card" style="text-align:center;padding:1rem;">
+            <div class="t-h3" contenteditable="true" style="font-size:1.05rem;">阳光电源</div>
+            <div class="t-caption">光伏逆变</div>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="grid-column:span 6;display:flex;align-items:center;justify-content:center;">
+        <div style="text-align:center;">
+          <div class="t-number" contenteditable="true">500+</div>
+          <div class="t-h3" contenteditable="true" style="margin-top:0.5rem;">活跃客户</div>
+          <div class="t-body" contenteditable="true" style="margin-top:0.5rem;">前五大客户集中度 35%，客户结构健康分散</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 10: INDUSTRY TRENDS ═══════════ -->
+  <section class="slide" data-slide="10">
+    <div class="section-header">
+      <span class="t-caption">09 · INDUSTRY TRENDS</span>
+      <h1 class="t-h1" contenteditable="true">行业趋势与市场机遇</h1>
+      <hr class="rule-accent" style="width:80px;">
+    </div>
+    <div class="three-col" style="flex:1;">
+      <div class="card card-accent" style="display:flex;flex-direction:column;gap:0.75rem;">
+        <span class="tag tag-green">高增长</span>
+        <div class="t-h3" contenteditable="true">国产替代加速</div>
+        <p class="t-body" contenteditable="true">
+          中美科技博弈背景下，国内终端品牌加速导入国产电源管理芯片。2025年国产PMIC渗透率突破35%，预计2027年达50%。
+        </p>
+        <div style="margin-top:auto;">
+          <div class="metric-value" contenteditable="true" style="font-size:2rem;color:var(--accent-green);">35%</div>
+          <div class="t-caption">2025年国产渗透率</div>
+        </div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;gap:0.75rem;">
+        <span class="tag tag-blue">新蓝海</span>
+        <div class="t-h3" contenteditable="true">新能源汽车</div>
+        <p class="t-body" contenteditable="true">
+          单车PMIC用量从传统燃油车20颗提升至新能源汽车80+颗，车规级电源管理芯片市场规模2025年达180亿元。
+        </p>
+        <div style="margin-top:auto;">
+          <div class="metric-value" contenteditable="true" style="font-size:2rem;color:var(--accent);">80+</div>
+          <div class="t-caption">单车PMIC用量（颗）</div>
+        </div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;gap:0.75rem;">
+        <span class="tag tag-amber">技术迭代</span>
+        <div class="t-h3" contenteditable="true">第三代半导体</div>
+        <p class="t-body" contenteditable="true">
+          GaN/SiC功率器件渗透率快速提升，GaN快充市场2025年规模超200亿元，芯朋微GaN集成方案处于国内领先。
+        </p>
+        <div style="margin-top:auto;">
+          <div class="metric-value" contenteditable="true" style="font-size:2rem;color:var(--accent-amber);">200亿</div>
+          <div class="t-caption">GaN快充市场规模</div>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:1.25rem;">
+      <div style="display:flex;gap:3rem;flex-wrap:wrap;align-items:center;">
+        <div>
+          <span class="t-caption">全球PMIC市场规模</span>
+          <div class="t-h2" contenteditable="true" style="margin-top:0.25rem;">450 亿美元</div>
+        </div>
+        <div>
+          <span class="t-caption">中国PMIC市场规模</span>
+          <div class="t-h2" contenteditable="true" style="margin-top:0.25rem;">1,200 亿元</div>
+        </div>
+        <div>
+          <span class="t-caption">CAGR (2023-2028)</span>
+          <div class="t-h2" contenteditable="true" style="margin-top:0.25rem;">8.5%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 11: FUTURE OUTLOOK ═══════════ -->
+  <section class="slide" data-slide="11">
+    <div class="section-header">
+      <span class="t-caption">10 · FUTURE OUTLOOK</span>
+      <h1 class="t-h1" contenteditable="true">未来展望与战略规划</h1>
+      <hr class="rule-accent" style="width:80px;">
+    </div>
+    <div class="two-col" style="flex:1;">
+      <div style="display:flex;flex-direction:column;gap:1.5rem;">
+        <div class="highlight-box">
+          <div class="t-caption" style="margin-bottom:0.5rem;">2026 年经营目标</div>
+          <div style="display:flex;gap:2rem;flex-wrap:wrap;">
+            <div>
+              <div style="font-size:2.5rem;font-weight:900;" contenteditable="true">16 亿+</div>
+              <div style="color:var(--muted);font-size:0.85rem;">营业收入目标</div>
+            </div>
+            <div>
+              <div style="font-size:2.5rem;font-weight:900;" contenteditable="true">25%+</div>
+              <div style="color:var(--muted);font-size:0.85rem;">营收增速目标</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="t-h3" style="margin-bottom:0.75rem;" contenteditable="true">战略重点</div>
+          <ul class="feature-list">
+            <li contenteditable="true"><strong>车规级产品放量</strong> — 2026年车规营收目标占比提升至20%，新增10+款AEC-Q100认证产品</li>
+            <li contenteditable="true"><strong>GaN产品线扩展</strong> — 推出65W-300W全系列GaN快充方案，抢占高端市场</li>
+            <li contenteditable="true"><strong>AI算力电源</strong> — 布局GPU/CPU供电PMIC，切入服务器与数据中心市场</li>
+            <li contenteditable="true"><strong>海外拓展</strong> — 加强东南亚及欧洲市场布局，海外营收占比目标15%</li>
+          </ul>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1.5rem;">
+        <div class="card">
+          <div class="t-h3" style="margin-bottom:0.75rem;" contenteditable="true">产能规划</div>
+          <ul class="feature-list">
+            <li contenteditable="true">与中芯国际签署长期产能保障协议，锁定12寸BCD工艺产能</li>
+            <li contenteditable="true">华虹半导体90nm BCD工艺导入，成本优化15%</li>
+            <li contenteditable="true">封测端与长电科技、通富微电深化战略合作</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="t-h3" style="margin-bottom:0.75rem;" contenteditable="true">人才战略</div>
+          <ul class="feature-list">
+            <li contenteditable="true">2026年计划新增研发人员100+，重点引进车规/功率器件人才</li>
+            <li contenteditable="true">实施股权激励计划，覆盖核心技术人员200+人</li>
+            <li contenteditable="true">与东南大学、电子科大共建联合实验室</li>
+          </ul>
+        </div>
+        <div class="card card-accent">
+          <div class="t-caption" style="margin-bottom:0.25rem;">长期愿景</div>
+          <div class="t-h3" contenteditable="true">"成为全球领先的电源管理芯片供应商"</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 12: RISK FACTORS ═══════════ -->
+  <section class="slide" data-slide="12">
+    <div class="section-header">
+      <span class="t-caption">11 · RISK FACTORS</span>
+      <h1 class="t-h1" contenteditable="true">风险提示</h1>
+      <hr class="rule-accent" style="width:80px;">
+    </div>
+    <div class="swiss-grid" style="flex:1;">
+      <div class="card" style="grid-column:span 6;display:flex;flex-direction:column;gap:0.75rem;">
+        <span class="tag tag-red">行业风险</span>
+        <div class="t-h3" contenteditable="true">半导体周期波动</div>
+        <p class="t-body" contenteditable="true">
+          全球半导体行业具有明显周期性，下游需求波动可能影响公司营收增速。公司通过产品多元化和客户结构优化降低周期影响。
+        </p>
+      </div>
+      <div class="card" style="grid-column:span 6;display:flex;flex-direction:column;gap:0.75rem;">
+        <span class="tag tag-amber">竞争风险</span>
+        <div class="t-h3" contenteditable="true">市场竞争加剧</div>
+        <p class="t-body" contenteditable="true">
+          国内电源管理芯片企业数量快速增长，中低端市场价格竞争激烈。公司持续加大研发投入，向高端产品转型以维持竞争优势。
+        </p>
+      </div>
+      <div class="card" style="grid-column:span 6;display:flex;flex-direction:column;gap:0.75rem;">
+        <span class="tag tag-blue">技术风险</span>
+        <div class="t-h3" contenteditable="true">技术迭代风险</div>
+        <p class="t-body" contenteditable="true">
+          GaN/SiC等新技术快速发展，若公司技术路线判断失误可能丧失市场机会。公司保持多技术路线并行研发以对冲风险。
+        </p>
+      </div>
+      <div class="card" style="grid-column:span 6;display:flex;flex-direction:column;gap:0.75rem;">
+        <span class="tag tag-primary">供应链风险</span>
+        <div class="t-h3" contenteditable="true">供应链集中度</div>
+        <p class="t-body" contenteditable="true">
+          公司晶圆代工主要依赖少数供应商，若产能紧张可能影响交付。公司已与多家代工厂建立合作关系，分散供应链风险。
+        </p>
+      </div>
+      <div class="card" style="grid-column:span 12;">
+        <div style="display:flex;gap:2rem;align-items:center;flex-wrap:wrap;">
+          <div class="t-h3" contenteditable="true">应对措施总结</div>
+          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+            <span class="tag tag-green">产品多元化</span>
+            <span class="tag tag-green">客户结构优化</span>
+            <span class="tag tag-green">多供应商策略</span>
+            <span class="tag tag-green">持续高研发投入</span>
+            <span class="tag tag-green">车规级转型</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SLIDE 13: CLOSING ═══════════ -->
+  <section class="slide slide-hero" data-slide="13">
+    <div class="orb" style="width:500px;height:500px;background:rgba(var(--accent-rgb),0.1);top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;text-align:center;">
+      <span class="tag tag-primary">THANK YOU</span>
+      <h1 class="t-display" contenteditable="true" style="background:linear-gradient(135deg,#f0f0f5,#7dd3fc,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">谢谢</h1>
+      <hr class="rule-accent" style="width:120px;margin:0.5rem auto;">
+      <h2 class="t-h2" style="font-weight:400;color:var(--muted-strong);max-width:600px;" contenteditable="true">
+        无锡芯朋微电子股份有限公司
+      </h2>
+      <p class="t-body" style="margin-top:0.5rem;max-width:500px;text-align:center;" contenteditable="true">
+        本报告中的财务数据基于公司2025年度财务报告，具体数据以公司正式披露的年度报告为准。所有文字内容均可直接点击编辑。
+      </p>
+      <div style="margin-top:2rem;display:flex;gap:2.5rem;flex-wrap:wrap;justify-content:center;">
+        <div style="text-align:center;">
+          <div class="t-caption">投资者关系</div>
+          <div class="t-body" contenteditable="true">ir@chipown.com</div>
+        </div>
+        <div style="text-align:center;">
+          <div class="t-caption">公司网站</div>
+          <div class="t-body" contenteditable="true">www.chipown.com.cn</div>
+        </div>
+        <div style="text-align:center;">
+          <div class="t-caption">股票代码</div>
+          <div class="t-body" contenteditable="true">688508.SH</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Index Overlay -->
+<div class="index-overlay" id="indexOverlay"></div>
+
+<!-- Navigation -->
+<div class="nav-hint">← → 键 / 滑动翻页 · ESC 索引</div>
+<div class="slide-number" id="slideNumber">1 / 13</div>
+
+<!-- GSAP -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+
+<script>
+(function () {
+  'use strict';
+
+  const deck = document.getElementById('deck');
+  const slides = deck.querySelectorAll('.slide');
+  const slideNumber = document.getElementById('slideNumber');
+  const indexOverlay = document.getElementById('indexOverlay');
+  let current = 0;
+  let isAnimating = false;
+  let indexOpen = false;
+
+  // Init Lucide
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+
+  // ===== Navigation =====
+  function goTo(i) {
+    if (isAnimating || i < 0 || i >= slides.length || i === current) return;
+    isAnimating = true;
+    current = i;
+
+    deck.style.transform = 'translateX(-' + (current * 100) + 'vw)';
+    slideNumber.textContent = (current + 1) + ' / ' + slides.length;
+
+    // GSAP entrance
+    gsap.fromTo(
+      slides[current].querySelectorAll('.card, .highlight-box, .section-header, .t-display, .t-h1, .cover-layout > div, .timeline-item, .bar-group, .tag, .feature-list li'),
+      { opacity: 0, y: 24 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.55,
+        stagger: 0.06,
+        ease: 'power2.out',
+        onComplete: function () { isAnimating = false; }
+      }
+    );
+  }
+
+  // ===== Keyboard =====
+  document.addEventListener('keydown', function (e) {
+    if (indexOpen) {
+      if (e.key === 'Escape') toggleIndex();
+      return;
+    }
+
+    // Allow editing inside contenteditable
+    if (e.target.getAttribute && e.target.getAttribute('contenteditable') === 'true') {
+      if (e.key === 'Escape') e.target.blur();
+      return;
+    }
+
+    switch (e.key) {
+      case 'ArrowRight': case 'ArrowDown': case ' ':
+        e.preventDefault(); goTo(current + 1); break;
+      case 'ArrowLeft': case 'ArrowUp':
+        e.preventDefault(); goTo(current - 1); break;
+      case 'Escape':
+        toggleIndex(); break;
+      case 'Home':
+        e.preventDefault(); goTo(0); break;
+      case 'End':
+        e.preventDefault(); goTo(slides.length - 1); break;
+    }
+  });
+
+  // ===== Scroll Wheel =====
+  let wheelTimeout = null;
+  document.addEventListener('wheel', function (e) {
+    if (indexOpen) return;
+    e.preventDefault();
+    if (wheelTimeout) return;
+    wheelTimeout = setTimeout(function () { wheelTimeout = null; }, 700);
+    if (e.deltaY > 0) goTo(current + 1);
+    else if (e.deltaY < 0) goTo(current - 1);
+  }, { passive: false });
+
+  // ===== Touch =====
+  var touchStartX = 0, touchStartY = 0;
+  document.addEventListener('touchstart', function (e) {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  document.addEventListener('touchend', function (e) {
+    if (indexOpen) return;
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    var dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+      dx < 0 ? goTo(current + 1) : goTo(current - 1);
+    }
+  }, { passive: true });
+
+  // ===== Index Overlay =====
+  function toggleIndex() {
+    indexOpen = !indexOpen;
+    indexOverlay.classList.toggle('active', indexOpen);
+    if (indexOpen) buildIndex();
+  }
+
+  function buildIndex() {
+    indexOverlay.innerHTML = '';
+    slides.forEach(function (slide, i) {
+      var thumb = document.createElement('div');
+      thumb.className = 'index-thumb';
+      var heading = slide.querySelector('h1, h2, h3');
+      thumb.textContent = heading ? heading.textContent : 'Slide ' + (i + 1);
+      thumb.addEventListener('click', function () {
+        toggleIndex();
+        goTo(i);
+      });
+      indexOverlay.appendChild(thumb);
+    });
+  }
+
+  // ===== Init =====
+  slideNumber.textContent = '1 / ' + slides.length;
+
+  // Initial entrance
+  if (slides.length > 0) {
+    gsap.fromTo(
+      slides[0].querySelectorAll('.card, .highlight-box, .section-header, .t-display, .t-h1, .cover-layout > div, .timeline-item, .bar-group, .tag, .feature-list li'),
+      { opacity: 0, y: 24 },
+      { opacity: 1, y: 0, duration: 0.6, stagger: 0.07, ease: 'power2.out' }
+    );
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+/* === Retro-Futurism === */
+/* 80s/90s neon, pixel fonts, noise texture, high-saturation clash colors */
+
+:root {
+  --bg: #0a0a0a;
+  --bg-rgb: 10, 10, 10;
+  --text: #f0f0f0;
+  --text-rgb: 240, 240, 240;
+  --accent: #ff00ff;
+  --accent-rgb: 255, 0, 255;
+  --surface: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.15);
+  --muted: #888;
+  --neon-cyan: #00ffff;
+  --neon-pink: #ff00ff;
+  --neon-green: #39ff14;
+  --font-heading: 'Press Start 2P', monospace;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+}
+
+:root[data-preset="vaporwave"] {
+  --accent: #ff71ce;
+  --neon-cyan: #01cdfe;
+}
+
+:root[data-preset="arcade"] {
+  --accent: #39ff14;
+  --neon-cyan: #ffb700;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.3;
+}
+
+h1 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+h2 { font-size: clamp(1rem, 2.5vw, 1.5rem); }
+h3 { font-size: clamp(0.8rem, 1.5vw, 1rem); }
+
+p { font-size: clamp(0.9rem, 1.1vw, 1rem); line-height: 1.7; color: var(--muted); }
+a { color: var(--neon-cyan); text-decoration: underline; text-underline-offset: 3px; }
+code { font-family: var(--font-mono); background: var(--surface); padding: 2px 6px; font-size: 0.875em; color: var(--neon-green); }
+
+/* Neon text - unique to this style */
+.neon-text {
+  text-shadow: 0 0 10px var(--accent), 0 0 40px var(--accent), 0 0 80px var(--accent);
+}
+
+.neon-border {
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 10px var(--accent), inset 0 0 10px rgba(255,0,255,0.1);
+}
+
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px);
+  pointer-events: none;
+}
+
+/* Hero */
+.slide-hero h1 { font-size: clamp(1.5rem, 5vw, 3rem); }
+.slide-hero p { max-width: 600px; margin-top: var(--space-lg); }
+
+/* Split */
+.slide-split > * + * { padding-left: var(--space-2xl); }
+
+/* Cards */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: var(--space-lg);
+}
+
+hr { border: none; border-top: 1px solid var(--border); margin: var(--space-xl) 0; }
+ul, ol { padding-left: 1.5em; }
+li { line-height: 1.8; }
+blockquote { border-left: 2px solid var(--accent); padding-left: var(--space-lg); color: var(--muted); }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: var(--space-sm) var(--space-md); border-bottom: 1px solid var(--border); text-align: left; }
+th { font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.slide img { border: 1px solid var(--border); }
+strong { font-weight: 600; }
+small { font-size: 0.875rem; color: var(--muted); }
