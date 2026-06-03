@@ -1,0 +1,14 @@
+{
+  "name": "html-ppt-skill",
+  "version": "1.0.0",
+  "description": "Claude Code Skill: Generate single-file HTML PPT presentations",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate-deck.mjs",
+    "serve": "node scripts/server.js",
+    "demo": "node demo/server.js"
+  },
+  "keywords": ["claude-code-skill", "html", "ppt", "presentation"],
+  "license": "MIT"
+}
